@@ -53,6 +53,7 @@ public class netClientMgr : MonoBehaviour {
 
 	public static Button camLockBtn;
 	public static Button blessingModeBtn;
+	public static Button blessMyGoalBtn;
 	public static Button pusherLinkBtn;
 
 	public Image minimapImage;
@@ -97,6 +98,7 @@ public class netClientMgr : MonoBehaviour {
 		speedSlider = GameObject.Find("SpeedSlider").GetComponent<Slider>();
 		camLockBtn = GameObject.Find("camLockBtn").GetComponent<Button>();
 		blessingModeBtn = GameObject.Find("blessingModeBtn").GetComponent<Button>();
+		blessMyGoalBtn = GameObject.Find("BlessMyTeam").GetComponent<Button>();
 		pusherLinkBtn = GameObject.Find("pusherLinkBtn").GetComponent<Button>();
 		teamScoreDisplay1Transform = GameObject.Find("TeamsScoreDisplay1").transform;
 		teamScoreDisplay2Transform = GameObject.Find("TeamsScoreDisplay2").transform;
@@ -107,6 +109,8 @@ public class netClientMgr : MonoBehaviour {
 		speedSlider.gameObject.SetActive(false);
 		camLockBtn.gameObject.SetActive(false);
 		blessingModeBtn.gameObject.SetActive(false);
+		blessMyGoalBtn.gameObject.SetActive(false);
+
 		pusherLinkBtn.gameObject.SetActive(false);
 
 		audioSourceBeepSelectNodeForLink = AddAudio(clipBeepSelectNodeForLink,false,false,0.5f);
@@ -240,6 +244,8 @@ public class netClientMgr : MonoBehaviour {
 		speedSlider.gameObject.SetActive(false);
 		camLockBtn.gameObject.SetActive(false);
 		blessingModeBtn.gameObject.SetActive(false);
+		blessMyGoalBtn.gameObject.SetActive(false);
+
 		pusherLinkBtn.gameObject.SetActive(false);
 
 		minimapImage.gameObject.SetActive(false);
@@ -462,6 +468,8 @@ public class netClientMgr : MonoBehaviour {
 		speedSlider.gameObject.SetActive(true);
 		camLockBtn.gameObject.SetActive(true);
 		blessingModeBtn.gameObject.SetActive(true);
+		blessMyGoalBtn.gameObject.SetActive(true);
+
 		pusherLinkBtn.gameObject.SetActive(true);
 
 		speedSlider.value = GOspinner.myInternalMusSpeed;
@@ -472,6 +480,8 @@ public class netClientMgr : MonoBehaviour {
 			speedSlider.gameObject.SetActive(false);
 			camLockBtn.gameObject.SetActive(false);
 			blessingModeBtn.gameObject.SetActive(false);
+			blessMyGoalBtn.gameObject.SetActive(false);
+
 			pusherLinkBtn.gameObject.SetActive(false);
 
 			GOspinner.cameraFollowMynode = false;
@@ -1103,7 +1113,7 @@ public class netClientMgr : MonoBehaviour {
 			}
 			foreach(int playerID in playersNameTransforms.Keys)
 			{
-				playersNameTransforms[playerID].position = new Vector2(bubbles [playerID].position.x,bubbles [playerID].position.y + initMsg.nodeData[playerID].radius * 1.40f) ;
+				playersNameTransforms[playerID].position = new Vector2(bubbles [playerID].position.x,bubbles [playerID].position.y + initMsg.nodeData[playerID].radius * 1.6f) ;
 			}
 			displayOomphOfGoals();
 		}
